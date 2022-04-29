@@ -1,7 +1,8 @@
 import { Button, Container, Grid, TextField } from "@mui/material";
 import { useFormik, Field } from "formik";
 import { MailSwitch } from "./Switch";
-
+import { ADD_USER } from "./mutations";
+import { useMutation } from "@apollo/client";
 import * as yup from "yup";
 
 const initialValues = {
@@ -20,13 +21,29 @@ const validationSchema = yup.object({
   address: yup.string().required().label("Street Address"),
 });
 
-export const RegistrationForm = () => {
+export const RegistrationForm = ({ id, onClose }) => {
+  const mutation = id === undefined ? ADD_USER : ADD_USER;
+  const [addUser, { loading, error }] = useMutation(mutation, {
+    onCompleted: () => {
+      if (onClose !== undefined) onClose();
+    },
+  });
+
   const { values, errors, handleSubmit, handleBlur, handleChange, isValid } =
     useFormik({
       initialValues,
       validationSchema,
-      onSubmit: (values, helpers) => {
+      onSubmit: async (values, helpers) => {
         console.log(values, helpers);
+        console.log(`User ID: ${id}`);
+        const { name, address, email } = values;
+        const input = { name, address, email };
+        await addUser({
+          variables: {
+            id,
+            input,
+          },
+        });
       },
     });
 
@@ -74,7 +91,7 @@ export const RegistrationForm = () => {
             <MailSwitch />
           </Grid>
           <Grid item xs={12}>
-            <Button type="submit" disabled={isValid === false}>
+            <Button type="submit" disabled={loading}>
               Save
             </Button>
           </Grid>

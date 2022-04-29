@@ -44,6 +44,7 @@ export const typeDefs = gql`
     meals: [Meal]
     meal(id: ID!): Meal
     categories: [Category]
+    user(id: ID!): User
     users: [User]
   }
   type Mutation {

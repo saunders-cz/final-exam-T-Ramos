@@ -33,7 +33,7 @@ export const resolvers = {
       return { ok: true };
     },
     addUser: async (parent, { id, input }) => {
-      await User.update(input, {
+      await User.create(input, {
         where: { id },
       });
       return { ok: true };
