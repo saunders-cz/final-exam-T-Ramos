@@ -4,6 +4,7 @@ import { Admin } from "./pages/Admin";
 import { HomePage } from "./pages/HomePage";
 import { Layout } from "./components/Layout";
 import { MenuPage } from "./pages/MenuPage";
+import { RegistrationFormPage } from "./pages/RegistrationPage";
 
 export const Router = () => {
   return (
@@ -15,6 +16,7 @@ export const Router = () => {
             <Route index element={<HomePage />} />
           </Route>
           <Route path="/menu" element={<MenuPage />} />
+          <Route path="/registration" element={<RegistrationFormPage />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="meals/:id" element={<Admin />} />
         </Route>

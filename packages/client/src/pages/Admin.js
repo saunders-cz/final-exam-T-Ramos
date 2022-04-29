@@ -22,8 +22,8 @@ export const Admin = () => {
   return (
     <>
       <Grid container direction="column">
-        <Grid item>
-          <Typography variant="h2">Meals</Typography>
+        <Grid item align="center">
+          <Typography variant="h2">Admin Meal Access</Typography>
         </Grid>
         <Grid item>
           <Button onClick={() => setShowAddMeal(true)}>Add Meal</Button>

@@ -25,6 +25,9 @@ export const Navigation = () => {
           <Link to="/">Home</Link>
         </StyledItem>
         <StyledItem>
+          <Link to="/registration">Registration</Link>
+        </StyledItem>
+        <StyledItem>
           <Link to="/menu">Menu</Link>
         </StyledItem>
         <StyledItem>
