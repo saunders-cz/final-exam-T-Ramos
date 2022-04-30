@@ -10,7 +10,7 @@ export const HomePage = () => {
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography align="center">*Insert Restaurant photo here*</Typography>
+        <img src="/img/restaurantphoto.jpg" alt="homephoto" />
       </Grid>
       <Grid item xs={12}>
         <Typography variant="h2" align="center">

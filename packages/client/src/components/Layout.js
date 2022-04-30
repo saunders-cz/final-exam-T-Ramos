@@ -6,7 +6,7 @@ import { Navigation } from "./Navigation.js";
 export const Layout = () => {
   return (
     <Container>
-      <Grid container spacing={2}>
+      <Grid container justifyContent="space-between">
         <Grid item xs={12}>
           <Navigation />
         </Grid>
