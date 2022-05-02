@@ -35,7 +35,6 @@ export const RegistrationForm = ({ id, onClose }) => {
       validationSchema,
       onSubmit: async (values, helpers) => {
         console.log(values, helpers);
-        console.log(`User ID: ${id}`);
         const { name, address, email } = values;
         const input = { name, address, email };
         await addUser({
